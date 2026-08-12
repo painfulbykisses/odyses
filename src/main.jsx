@@ -9,10 +9,12 @@ const navItems = [
   { label: 'World', href: '#world' },
 ];
 
+const asset = name => `${import.meta.env.BASE_URL}${name}`;
+
 const characters = [
-  { numeral: 'I', name: 'Odysseus', role: 'The wanderer', image: '/odyssey.png', alt: 'Odysseus, king of Ithaca', copy: 'A king shaped by war, known less for his strength than for the mind that refuses to surrender.' },
-  { numeral: 'II', name: 'Penelope', role: 'The constant', image: '/penelope.png', alt: 'Penelope, queen of Ithaca', copy: 'For twenty years she keeps Ithaca intact, weaving patience into a weapon no invader can understand.' },
-  { numeral: 'III', name: 'Poseidon', role: 'The adversary', image: '/poseidon.png', alt: 'Poseidon, god of the sea', copy: 'Lord of the sea and keeper of grudges. Every wave carries the weight of his anger.' },
+  { numeral: 'I', name: 'Odysseus', role: 'The wanderer', image: asset('odyssey.png'), alt: 'Odysseus, king of Ithaca', copy: 'A king shaped by war, known less for his strength than for the mind that refuses to surrender.' },
+  { numeral: 'II', name: 'Penelope', role: 'The constant', image: asset('penelope.png'), alt: 'Penelope, queen of Ithaca', copy: 'For twenty years she keeps Ithaca intact, weaving patience into a weapon no invader can understand.' },
+  { numeral: 'III', name: 'Poseidon', role: 'The adversary', image: asset('poseidon.png'), alt: 'Poseidon, god of the sea', copy: 'Lord of the sea and keeper of grudges. Every wave carries the weight of his anger.' },
 ];
 
 function Arrow() { return <span className="arrow" aria-hidden="true">↗</span>; }
@@ -43,7 +45,16 @@ function App() {
 
   const go = () => setMenu(false);
 
-  return <div className={`page ${ready ? 'ready' : ''}`}>
+  const assetBase = import.meta.env.BASE_URL;
+  const assetVars = {
+    '--hero-bg': `url(${assetBase}tes.png)`,
+    '--journey-one-bg': `url(${assetBase}journey-one.png)`,
+    '--journey-two-bg': `url(${assetBase}journey-two.png)`,
+    '--cyclops-bg': `url(${assetBase}cyclops-eye.png)`,
+    '--map-bg': `url(${assetBase}odyssey-map.png)`,
+  };
+
+  return <div className={`page ${ready ? 'ready' : ''}`} style={assetVars}>
     <a className="skip-link" href="#main">Skip to content</a>
     <header className="site-header">
       <a className="brand" href="#top" onClick={go} aria-label="Odyses home">ODYSES</a>
@@ -134,7 +145,7 @@ function App() {
         </div>
         <figure className="route">
           <div className="route-image" data-motion="image">
-            <img src="/odyssey-map.png" alt="Illustrated map tracing Odysseus's voyage across the Mediterranean toward Ithaca" loading="lazy" />
+            <img src={asset('odyssey-map.png')} alt="Illustrated map tracing Odysseus's voyage across the Mediterranean toward Ithaca" loading="lazy" />
           </div>
           <figcaption>The voyage from fallen Troy to the long-awaited shores of Ithaca.</figcaption>
         </figure>
