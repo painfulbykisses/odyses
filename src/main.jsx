@@ -17,6 +17,17 @@ const characters = [
   { numeral: 'III', name: 'Poseidon', role: 'The adversary', image: asset('poseidon.png'), alt: 'Poseidon, god of the sea', copy: 'Lord of the sea and keeper of grudges. Every wave carries the weight of his anger.' },
 ];
 
+const places = [
+  ['01', 'Troy'],
+  ['02', 'Ismarus'],
+  ['03', 'Land of the Lotus-Eaters'],
+  ['04', 'Island of the Cyclops'],
+  ['05', 'Aeaea'],
+  ['06', 'Hades'],
+  ['07', 'Ogygia'],
+  ['08', 'Ithaca'],
+];
+
 function Arrow() { return <span className="arrow" aria-hidden="true">↗</span>; }
 
 function App() {
@@ -148,6 +159,9 @@ function App() {
             <img src={asset('odyssey-map.png')} alt="Illustrated map tracing Odysseus's voyage across the Mediterranean toward Ithaca" loading="lazy" />
           </div>
           <figcaption>The voyage from fallen Troy to the long-awaited shores of Ithaca.</figcaption>
+          <div className="places" aria-label="Places along Odysseus's journey">
+            {places.map(([number, name]) => <a href="#journey" key={name}><span>{number}</span><strong>{name}</strong></a>)}
+          </div>
         </figure>
       </section>
 

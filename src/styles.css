@@ -41,3 +41,6 @@
   .ready .hero .art,.chapter-image,.home-image{animation:none}
   .chapter:hover .chapter-copy,.chapter:hover .chapter-image,.noman:hover .eye{transform:none}
 }
+
+.places{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(238,208,182,.25);margin-top:34px}.places a{min-height:104px;padding:22px 24px 18px;border-right:1px solid rgba(238,208,182,.18);border-bottom:1px solid rgba(238,208,182,.18);transition:background 180ms ease-out,color 180ms ease-out,transform 180ms ease-out}.places a:nth-child(4n){border-right:0}.places a:hover{background:rgba(240,229,209,.1);color:#fff0d5;transform:translateY(-2px)}.places span{display:block;color:#d89265;font-size:9px;font-weight:600;letter-spacing:.18em}.places strong{display:block;margin-top:15px;font:400 25px/.95 'Cormorant Garamond',serif;text-transform:uppercase}.places a:active{transform:scale(.98)}
+@media (max-width:900px){.places{grid-template-columns:repeat(2,1fr);margin-top:28px}.places a{min-height:92px;padding:18px 14px}.places a:nth-child(4n){border-right:1px solid rgba(238,208,182,.18)}.places a:nth-child(2n){border-right:0}.places strong{font-size:22px}}
